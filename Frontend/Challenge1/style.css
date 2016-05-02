@@ -1,0 +1,35 @@
+body{
+	width:1000px;
+	height:800px;
+	margin:0px 0px 0px 0px;
+}
+.largevertrect{
+	width:300px;
+	height:400px;
+}
+.largehorizrect{
+	height:200px;
+	width:400px;
+}
+.smallhorizrect{
+	width:300px;
+	height:50px;
+}
+.largesquare{
+	width:200px;
+	height:200px;
+}
+.mediumsquare{
+	width:100px;
+	height:100px;
+	float:left;
+}
+.smallsquare{
+	width:50px;
+	height:50px;
+	position:absolute;
+}
+.row{
+	position:relative;
+	float:left;
+}
