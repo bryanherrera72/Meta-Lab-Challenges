@@ -1,12 +1,10 @@
-
-
 <?php
+header('Content-Type: application/json');
 /*
 @author:Bryan Herrera
 @description: program provides a json response with n numbers of
 the fibonacci sequence. N is provided by the url in a curl command.
 */
-
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $value = explode("?", $actual_link);
 $n = key($_GET);
@@ -30,7 +28,6 @@ if(isset($n)){
 		"Fibonacci" => $n,
 		"numbers" =>$result,
 		);
-
 	//return the response
 	echo json_encode($response,JSON_PRETTY_PRINT|JSON_FORCE_OBJECT);
 }else{
@@ -60,6 +57,4 @@ function fib($n, &$result){
 		}
 	}
 }
-
-
 ?>
