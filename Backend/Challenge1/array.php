@@ -11,9 +11,9 @@ $n = key($_GET);
 if(isset($n)){
 	//determine response code
 	$code = http_response_code();
-	if($code == 200){
+	if($code == 200) 
 		$success = "success";
-	}
+	
 	else $success = "fail";
 
 	//prepare solution array
