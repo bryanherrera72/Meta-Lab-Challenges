@@ -25,7 +25,7 @@
             while($counter < count($superheros)){
 				array_push($returnarray, $superheros[$counter]);
 				foreach($_GET as $key => $value){
-                    $value = str_replace('/', '', $value);
+				    $value = str_replace('/', '', $value);
 					$currenthero = end($returnarray);
 					if($currenthero){
 						if(!(array_key_exists($key, $currenthero))){
