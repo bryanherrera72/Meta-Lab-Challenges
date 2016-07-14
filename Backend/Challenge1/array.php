@@ -16,18 +16,25 @@ if(isset($n)){
 
 	//prepare solution array
 	$result = array();
-	fib($n,$result);
-	//form the response
-	$response = array(
+    if((is_numeric($n))) {
+        fib($n, $result);
+        //form the response
+        $response = array(
 
-		"status" => $code,
-		"success" =>$success,
-		"version"=>"JSON-Array-0.1",
-		"Fibonacci" => $n,
-		"numbers" =>$result,
-		);
-	//return the response
-	echo json_encode($response,JSON_PRETTY_PRINT|JSON_FORCE_OBJECT);
+            "status" =>  $code ,
+            "success" =>  $success ,
+            "version"=>"JSON-Array-0.1",
+            "Fibonacci" => $n,
+            "values" =>$result,
+        );
+        //return the response
+        echo json_encode($response,JSON_PRETTY_PRINT|JSON_FORCE_OBJECT);
+    }
+    else{
+       //throw an error if the value for n isn't numeric.
+       echo "please enter a number";
+    }
+
 }else{
 	//throw an error if no N value provided.
 	echo "value not provided in the URL!";
