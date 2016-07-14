@@ -22,8 +22,7 @@
 
 		$superheros = createHerosArray($superheros);
 		if(isset($_GET) && $_GET){
-
-			while($counter < count($superheros)){
+            while($counter < count($superheros)){
 				array_push($returnarray, $superheros[$counter]);
 				foreach($_GET as $key => $value){
                     $value = str_replace('/', '', $value);
@@ -32,7 +31,7 @@
 						if(!(array_key_exists($key, $currenthero))){
 							array_pop($returnarray);
 						}
-                        //changed else-if to do regular expression matching
+						//changed else-if to do regular expression matching
                         else if(!(preg_match('/' .$value. '/', $currenthero[$key]))){
                             array_pop($returnarray);
                         }
@@ -40,20 +39,23 @@
 				}
 				$counter ++; 
 			}
+
+            //set up the return object
+            $responseobject = array(
+                'status' => $code,
+                "success" => $success,
+                "version"=>"JSON-Flat-File-0.1",
+                "hero:"=> $returnarray,
+            );
+            //return the final json object
+            echo json_encode($responseobject,JSON_PRETTY_PRINT);
 		}
+		else{echo "enter a query";}
 	}
 	else{
 		echo "superheros aren't here!";
 	}
-	//set up the return object
-	$responseobject = array(
-		'status' => $code,
-		"success" => $success,
-		"version"=>"JSON-Flat-File-0.1",
-		"hero:"=> $returnarray,
-		);
-	//return the final json object
-	echo json_encode($responseobject,JSON_PRETTY_PRINT);
+
 
 
 
@@ -81,7 +83,6 @@
 		$handle = fopen($data, "r") or die("Can't read this file!");
 		//array to return
 		$rtn = [];
-		$rtnjson;
 		//while not at end of file
 		if(isset($handle)){
 			while(!feof($handle)){
