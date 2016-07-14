@@ -32,9 +32,6 @@
 						if(!(array_key_exists($key, $currenthero))){
 							array_pop($returnarray);
 						}
-//						else if(!($value == $currenthero[$key])){
-//							array_pop($returnarray);
-//						}
                         //changed else-if to do regular expression matching
                         else if(!(preg_match('/' .$value. '/', $currenthero[$key]))){
                             array_pop($returnarray);
